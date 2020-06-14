@@ -1,0 +1,293 @@
+{
+	"textures": [
+		{
+			"image": "decksprites.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 450,
+				"h": 1974
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "card1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 226,
+						"h": 283
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 226,
+						"h": 283
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 226,
+						"h": 283
+					}
+				},
+				{
+					"filename": "card10.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 220,
+						"h": 280
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 220,
+						"h": 280
+					},
+					"frame": {
+						"x": 229,
+						"y": 1,
+						"w": 220,
+						"h": 280
+					}
+				},
+				{
+					"filename": "card11.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 220,
+						"h": 280
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 220,
+						"h": 280
+					},
+					"frame": {
+						"x": 229,
+						"y": 283,
+						"w": 220,
+						"h": 280
+					}
+				},
+				{
+					"filename": "card2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 226,
+						"h": 283
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 226,
+						"h": 283
+					},
+					"frame": {
+						"x": 1,
+						"y": 286,
+						"w": 226,
+						"h": 283
+					}
+				},
+				{
+					"filename": "card12.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 220,
+						"h": 280
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 220,
+						"h": 280
+					},
+					"frame": {
+						"x": 229,
+						"y": 565,
+						"w": 220,
+						"h": 280
+					}
+				},
+				{
+					"filename": "card13.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 220,
+						"h": 280
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 220,
+						"h": 280
+					},
+					"frame": {
+						"x": 1,
+						"y": 571,
+						"w": 220,
+						"h": 280
+					}
+				},
+				{
+					"filename": "card3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 220,
+						"h": 280
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 220,
+						"h": 280
+					},
+					"frame": {
+						"x": 223,
+						"y": 847,
+						"w": 220,
+						"h": 280
+					}
+				},
+				{
+					"filename": "card4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 220,
+						"h": 280
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 220,
+						"h": 280
+					},
+					"frame": {
+						"x": 1,
+						"y": 853,
+						"w": 220,
+						"h": 280
+					}
+				},
+				{
+					"filename": "card5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 220,
+						"h": 280
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 220,
+						"h": 280
+					},
+					"frame": {
+						"x": 223,
+						"y": 1129,
+						"w": 220,
+						"h": 280
+					}
+				},
+				{
+					"filename": "card6.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 220,
+						"h": 280
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 220,
+						"h": 280
+					},
+					"frame": {
+						"x": 1,
+						"y": 1135,
+						"w": 220,
+						"h": 280
+					}
+				},
+				{
+					"filename": "card7.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 220,
+						"h": 280
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 220,
+						"h": 280
+					},
+					"frame": {
+						"x": 223,
+						"y": 1411,
+						"w": 220,
+						"h": 280
+					}
+				},
+				{
+					"filename": "card8.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 220,
+						"h": 280
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 220,
+						"h": 280
+					},
+					"frame": {
+						"x": 1,
+						"y": 1417,
+						"w": 220,
+						"h": 280
+					}
+				},
+				{
+					"filename": "card9.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 220,
+						"h": 280
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 220,
+						"h": 280
+					},
+					"frame": {
+						"x": 223,
+						"y": 1693,
+						"w": 220,
+						"h": 280
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:527bbe7c5b135a6a64a7503fbfc14423:b0960d3349bef03317e13dbc9e16dfd9:f133d8ea674b1ea94aadfcc086aba57b$"
+	}
+}
