@@ -27,7 +27,7 @@ function preload() {
 function create() {
   this.add.image(0,0, 'bg_menu').setOrigin(0,0)
 
-  // definindo um socket para ouvir a porta 3000 ( uma forma de se conectar com o arquivo server.js)
+  // definindo o socket para ouvir a porta 3000 ( uma forma de se conectar com o arquivo server.js)
   this.socket = io('http://localhost:3000');
 
   // apenas um Ping-Pong para testar se a conexão Client/Server foi estabelecida  
@@ -76,14 +76,13 @@ function create() {
   // método para distribuir as cartas. (INCOMPLETO) (acionado ali em cima this.dealtext.on('pointerdown'))  
   this.dealCards = (cards) => {
       console.log('exibindo as cartas na mão do jogador', cards)
-      cards.forEach(index => {
-         let randomCard = deck[index - 1]
-          let cardpick = this.add.image(x, y, 'cards', randomCard).setInteractive();
-          deck.splice(deck.indexOf(randomCard), 1)
+      cards.forEach(card => {
+        let cardpick = this.add.image(x, y, 'cards', card).setInteractive();
           x += 250;
           this.input.setDraggable(cardpick); 
+      });
           
-      })
+          
     
           
   }
