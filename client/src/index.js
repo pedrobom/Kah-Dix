@@ -32,7 +32,7 @@ function create() {
 
   // apenas um Ping-Pong para testar se a conexão Client/Server foi estabelecida  
   this.socket.on('connect', function () {
-    console.log('Socket on client Connected!');
+    console.log('Socket on client Connected!' + socket.id);
   });
   // Variável pra alguma função funcionar (não entendi muito bem)
   var self = this
@@ -142,21 +142,3 @@ this.socket.on('cardPlayed', function (gameObject, isPlayerA) {
 
 
 }
-
-$('#pop-up-form').submit(function(e) {
-  e.preventDefault()
-  alert('Snades qual foi')
-  socket.emit('nome input', $('#nome').val())
-  sombraBg.remove()
-  popUp.remove()
-})
-
-$('#chat-form').submit(function(e) {
-  e.preventDefault()
-  socket.emit('chat message', $('#m').val())
-  $('#m').val('')
-  return false
-})
-socket.on('chat message', function(msg){
-  $('#messages').append($('<li>').text(msg))
-})

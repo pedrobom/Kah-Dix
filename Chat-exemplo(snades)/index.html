@@ -155,7 +155,6 @@
     </div>
     
 
-    <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     
     <script>
@@ -181,13 +180,13 @@
         }
 
     </script>
-
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
     <script>
         const sombraBg = document.querySelector('#sombra')
         const popUp = document.querySelector('#pop-up')  
 
         $(function () {
-            var socket = io()
+            var socket = io.connect('http://localhost:3000');
             
             $('#pop-up-form').submit(function(e) {
                 e.preventDefault()

@@ -14,19 +14,16 @@ io.on('connection', function (socket) {
     jogadores[id] = {
         id: socket.id,
         jogador: ''    }
-    console.log('Um usuário abriu a página :' + jogadores.jogador)
+    console.log('Um usuário abriu a página')
 
     socket.on('nome input', nome => {
         jogadores[id].jogador = nome
-        console.log(jogadores)
+        console.log("usuário definiu o nome: " + jogadores[id].jogador)
     })
 
     socket.on('chat message', (msg) => {
-        console.log('message: ' + msg)
-        let nomeJogador = jogadores[id].jogador
-        console.log(nomeJogador)
-
-        io.emit('chat message', `${nomeJogador} diz: ${msg}` )
+        console.log(`${jogadores[id].jogador} diz: ${msg}`)
+        io.emit('chat message', `${jogadores[id].jogador} diz: ${msg}` )
     })
 
     socket.on('disconnect', ()=>{
@@ -36,11 +33,11 @@ io.on('connection', function (socket) {
     })
 
     socket.on('requestCards', function () {
-        console.log('jogador fez "requestCards"')
+        console.log(`${jogadores[id].jogador} fez "requestCards`)
         for (jogador in jogadores) {
            // let currentPlayer = players[playerId]
 //if (currentPlayer.game == socketPlayer.game) {
-                console.log('dando cartas para o jogador %s', jogadores.jogador)
+                console.log('dando cartas para o jogador %s', jogadores[id].jogador)
                 let randomCards = []
                 for ( let i = 0; i < 5; i++ ) {
                     let randomCard = deck[Math.floor(Math.random() * deck.length)]

@@ -1,110 +1,201 @@
 <!doctype html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>Kah-Dix</title>
+    <title>Socket.IO chat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { font: 13px Helvetica, Arial; }
-      #chat-form { background: #000; padding: 3px; position: fixed; bottom: 0; right: 0; width: 20%; }
-      #chat-form input { border: 0; padding: 10px; width: 80%; margin-right: 0.5%; }
-      #chat-form button { width: 15%; background: rgb(255, 130, 228); border: none; padding: 10px;  }
-      #messages { list-style-type: none; margin: 1000; padding: 0; }
-      #messages li { padding: 5px 10px; }
-      #messages li:nth-child(odd) { background: #eee; }
 
-      #sombra{
-          position: fixed;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(0, 0, 0, 0.5);
-      }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
 
-      #pop-up{
-          position: fixed;
-          display: flex;
-          flex-direction: column;
-          width: 400px;
-          height: 500px;
-          background-color: white;
-          border: solid 4px gray;
-          top: calc(50% - 250px);
-          left: calc(50% - 200px);
-      }
 
-      #pop-up form {
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-around;
-      }
+        body { 
+            font: 13px Helvetica, Arial; 
+            /* background-color: dodgerblue; */
+        }
 
-      #pop-up input {
-          margin: 20px;
-      }
+        #messages { 
+            list-style-type: none; 
+            margin: 0; 
+            padding: 0; 
+        }
 
-      #pop-up button {
-          width: 40%;
-          text-align: center;
-      }
+        #messages li { 
+            padding: 5px 10px; 
+        }
+
+        #messages li:nth-child(odd) { 
+            background: rgb(132, 205, 230); 
+        }
+
+        #chat-form {
+            background: #000; 
+            padding: 3px; 
+            position: fixed; 
+            right: 0;
+            bottom: 0; 
+            width: 500px;
+        }
+
+        #chat-section{
+            position: fixed;
+            border: solid 3px black;
+            background-color: rgba(0, 0, 0, 0.2);
+            bottom: 39px;
+            right: 0;
+            width: 500px;
+            height: 400px;
+            overflow-y: scroll;
+        }
+
+        form button { 
+            width: 15%; 
+            background: rgb(130, 224, 255); 
+            border: none; 
+            padding: 10px; }
+
+        form input {
+            border: 0;
+            padding: 10px; 
+            width: 84%; 
+            margin-right: 0.5%;
+        }
+
+        #sombra{
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 00;
+        }
+
+        #pop-up{
+            position: fixed;
+            width: 400px;
+            height: 500px;
+            background-color: white;
+            border: solid 10px gray;
+            top: calc(50% - 250px);
+            left: calc(50% - 200px);
+            text-align: center;
+            padding-top: 20px;
+            border-radius: 8%;
+            z-index: 200;
+        }
+
+        #pop-up-form {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        #pop-up input {
+            margin: 20px;
+            display: inline-block;
+            border: solid 1px slategray;
+        }
+
+        #pop-up button {
+            width: 40%;
+            margin: 20px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        #cronometro {
+            position: absolute;
+            top:5%;
+            right: 5%;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: black;
+        }
+
+        li {
+        font-size: 1.5em;
+        font-weight: bold;
+        }
+
+    
+
     </style>
   </head>
   <body>
+
     <div id="sombra"></div>
     <div id="pop-up">
         <h1>Seja Mau-Vindo!</h1>
         
         <form id="pop-up-form" action="">
-            <input id="nome" type="text" placeholder="Escreva o seu nome..."/>
-            <button>Entrar</button>
+            <input id="nome" type="text" placeholder="Nickname"/>
+            <input type="text" placeholder="Idade"/> 
+            <input type="text" placeholder="Snades Hacker"/>
+            <div><button>Send</button></div>
         </form>
+    
+    </div>
+
+    <div id="cronometro">0:00</div>
+
+    <div id="chat-section">
         
+        <ul id="messages"></ul>
+        <form id="chat-form" action="">
+        <input id="m" autocomplete="off" /><button>Send</button>
+        </form>
+
     </div>
     
-    <ul id="messages"></ul>
-    <form id="chat-form" action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
-    </form>
 
-    <script>
-
-        const sombraBg = document.querySelector('#sombra')
-        const popUp = document.querySelector('#pop-up')
-
-        sombraBg.onclick = ()=>{
-            sombraBg.remove()
-            popUp.remove()
-        }       
-        
-
-    </script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
     
     <script>
-        $(function () {
-            var socket = io.connect('http://localhost:8080');
+        const sombraBg = document.querySelector('#sombra')
+        const popUp = document.querySelector('#pop-up')  
 
+        $(function () {
+            var socket = io.connect('http://localhost:3000');
+            
             $('#pop-up-form').submit(function(e) {
                 e.preventDefault()
-                alert('Snades qual foi')
-                socket.emit('nome input', $('#nome').val())
-                sombraBg.remove()
-                popUp.remove()
+                let nameInput = $('#nome').val()
+                if(nameInput !== ""){
+
+                    socket.emit('nome input', nameInput)
+                    sombraBg.remove()
+                    popUp.remove()
+                    setTimer()
+
+                } else {
+                    alert('Preencha um nome por favor!')
+                }
+                
             })
 
             $('#chat-form').submit(function(e) {
                 e.preventDefault()
-                socket.emit('chat message', $('#m').val())
-                $('#m').val('')
-                return false
+                let msgInput = $('#m').val()
+                if(msgInput !== ""){
+                    socket.emit('chat message', $('#m').val())
+                    $('#m').val('')
+                    return false
+                } 
             })
             socket.on('chat message', function(msg){
                 $('#messages').append($('<li>').text(msg))
             })
         })
-        
     </script>
 
   </body>
 </html>
-
