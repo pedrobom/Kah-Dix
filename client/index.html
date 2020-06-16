@@ -78,12 +78,11 @@
         
 
     </script>
-    <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     
     <script>
         $(function () {
-            const socket = io('http://localhost:3000');
+            var socket = io.connect('http://localhost:8080');
 
             $('#pop-up-form').submit(function(e) {
                 e.preventDefault()

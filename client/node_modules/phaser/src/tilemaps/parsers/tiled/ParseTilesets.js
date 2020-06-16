@@ -1,6 +1,6 @@
 /**
  * @author       Richard Davey <rich@photonstorm.com>
- * @copyright    2019 Photon Storm Ltd.
+ * @copyright    2020 Photon Storm Ltd.
  * @license      {@link https://opensource.org/licenses/MIT|MIT License}
  */
 
@@ -14,9 +14,9 @@ var ParseObject = require('./ParseObject');
  * @function Phaser.Tilemaps.Parsers.Tiled.ParseTilesets
  * @since 3.0.0
  *
- * @param {object} json - [description]
+ * @param {object} json - The Tiled JSON data.
  *
- * @return {object} [description]
+ * @return {object} An object containing the tileset and image collection data.
  */
 var ParseTilesets = function (json)
 {

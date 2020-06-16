@@ -1,6 +1,6 @@
 /**
  * @author       Richard Davey <rich@photonstorm.com>
- * @copyright    2019 Photon Storm Ltd.
+ * @copyright    2020 Photon Storm Ltd.
  * @license      {@link https://opensource.org/licenses/MIT|MIT License}
  */
 
@@ -68,7 +68,14 @@ var BitmapTextCanvasRenderer = function (renderer, src, interpolationPercentage,
     var lineOffsetX = 0;
 
     //  Update the bounds - skipped internally if not dirty
-    src.getTextBounds(false);
+    var bounds = src.getTextBounds(false);
+
+    //  In case the method above changed it (word wrapping)
+    if (src.maxWidth > 0)
+    {
+        text = bounds.wrappedText;
+        textLength = text.length;
+    }
 
     var lineData = src._bounds.lines;
 

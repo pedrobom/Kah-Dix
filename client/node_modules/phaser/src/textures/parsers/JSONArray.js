@@ -1,6 +1,6 @@
 /**
  * @author       Richard Davey <rich@photonstorm.com>
- * @copyright    2019 Photon Storm Ltd.
+ * @copyright    2020 Photon Storm Ltd.
  * @license      {@link https://opensource.org/licenses/MIT|MIT License}
  */
 
@@ -66,11 +66,13 @@ var JSONArray = function (texture, sourceIndex, json)
             newFrame.updateUVsInverted();
         }
 
-        if (src.anchor)
+        var pivot = src.anchor || src.pivot;
+
+        if (pivot)
         {
             newFrame.customPivot = true;
-            newFrame.pivotX = src.anchor.x;
-            newFrame.pivotY = src.anchor.y;
+            newFrame.pivotX = pivot.x;
+            newFrame.pivotY = pivot.y;
         }
 
         //  Copy over any extra data

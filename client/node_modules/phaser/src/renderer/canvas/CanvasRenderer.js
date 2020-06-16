@@ -1,7 +1,7 @@
 /**
  * @author       Richard Davey <rich@photonstorm.com>
  * @author       Felipe Alfonso <@bitnenfer>
- * @copyright    2019 Photon Storm Ltd.
+ * @copyright    2020 Photon Storm Ltd.
  * @license      {@link https://opensource.org/licenses/MIT|MIT License}
  */
 
@@ -456,7 +456,10 @@ var CanvasRenderer = new Class({
         {
             camera.emit(CameraEvents.POST_RENDER, camera);
 
-            scene.sys.context.drawImage(camera.canvas, cx, cy);
+            if (camera.renderToGame)
+            {
+                scene.sys.context.drawImage(camera.canvas, cx, cy);
+            }
         }
     },
 
