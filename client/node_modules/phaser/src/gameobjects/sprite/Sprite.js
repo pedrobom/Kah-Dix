@@ -1,6 +1,6 @@
 /**
  * @author       Richard Davey <rich@photonstorm.com>
- * @copyright    2019 Photon Storm Ltd.
+ * @copyright    2020 Photon Storm Ltd.
  * @license      {@link https://opensource.org/licenses/MIT|MIT License}
  */
 
@@ -127,7 +127,7 @@ var Sprite = new Class({
      * @param {boolean} [ignoreIfPlaying=false] - If an animation is already playing then ignore this call.
      * @param {integer} [startFrame=0] - Optionally start the animation playing from this frame index.
      *
-     * @return {Phaser.GameObjects.Sprite} This Game Object.
+     * @return {this} This Game Object.
      */
     play: function (key, ignoreIfPlaying, startFrame)
     {

@@ -1,6 +1,6 @@
 /**
  * @author       Richard Davey <rich@photonstorm.com>
- * @copyright    2019 Photon Storm Ltd.
+ * @copyright    2020 Photon Storm Ltd.
  * @license      {@link https://opensource.org/licenses/MIT|MIT License}
  */
 
@@ -135,11 +135,13 @@ var Ellipse = new Class({
      * @method Phaser.Geom.Ellipse#getPoints
      * @since 3.0.0
      *
+     * @generic {Phaser.Geom.Point[]} O - [output,$return]
+     *
      * @param {integer} quantity - The amount of points to return. If a falsey value the quantity will be derived from the `stepRate` instead.
      * @param {number} [stepRate] - Sets the quantity by getting the circumference of the ellipse and dividing it by the stepRate.
-     * @param {array} [output] - An array to insert the points in to. If not provided a new array will be created.
+     * @param {(array|Phaser.Geom.Point[])} [output] - An array to insert the points in to. If not provided a new array will be created.
      *
-     * @return {Phaser.Geom.Point[]} An array of Point objects pertaining to the points around the circumference of the ellipse.
+     * @return {(array|Phaser.Geom.Point[])} An array of Point objects pertaining to the points around the circumference of the ellipse.
      */
     getPoints: function (quantity, stepRate, output)
     {
@@ -174,7 +176,7 @@ var Ellipse = new Class({
      * @param {number} width - The width of the ellipse.
      * @param {number} height - The height of the ellipse.
      *
-     * @return {Phaser.Geom.Ellipse} This Ellipse object.
+     * @return {this} This Ellipse object.
      */
     setTo: function (x, y, width, height)
     {
@@ -193,7 +195,7 @@ var Ellipse = new Class({
      * @method Phaser.Geom.Ellipse#setEmpty
      * @since 3.0.0
      *
-     * @return {Phaser.Geom.Ellipse} This Ellipse object.
+     * @return {this} This Ellipse object.
      */
     setEmpty: function ()
     {
@@ -212,7 +214,7 @@ var Ellipse = new Class({
      * @param {number} x - The x position of the center of the ellipse.
      * @param {number} y - The y position of the center of the ellipse.
      *
-     * @return {Phaser.Geom.Ellipse} This Ellipse object.
+     * @return {this} This Ellipse object.
      */
     setPosition: function (x, y)
     {
@@ -234,7 +236,7 @@ var Ellipse = new Class({
      * @param {number} width - The width of the ellipse.
      * @param {number} [height=width] - The height of the ellipse.
      *
-     * @return {Phaser.Geom.Ellipse} This Ellipse object.
+     * @return {this} This Ellipse object.
      */
     setSize: function (width, height)
     {

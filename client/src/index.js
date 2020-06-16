@@ -142,3 +142,21 @@ this.socket.on('cardPlayed', function (gameObject, isPlayerA) {
 
 
 }
+
+$('#pop-up-form').submit(function(e) {
+  e.preventDefault()
+  alert('Snades qual foi')
+  socket.emit('nome input', $('#nome').val())
+  sombraBg.remove()
+  popUp.remove()
+})
+
+$('#chat-form').submit(function(e) {
+  e.preventDefault()
+  socket.emit('chat message', $('#m').val())
+  $('#m').val('')
+  return false
+})
+socket.on('chat message', function(msg){
+  $('#messages').append($('<li>').text(msg))
+})

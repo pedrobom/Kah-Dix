@@ -1,6 +1,6 @@
 /**
  * @author       Richard Davey <rich@photonstorm.com>
- * @copyright    2019 Photon Storm Ltd.
+ * @copyright    2020 Photon Storm Ltd.
  * @license      {@link https://opensource.org/licenses/MIT|MIT License}
  */
 
@@ -620,7 +620,7 @@ var PluginManager = new Class({
      *
      * @param {string} key - The key of the plugin to stop.
      *
-     * @return {Phaser.Plugins.PluginManager} The Plugin Manager.
+     * @return {this} The Plugin Manager.
      */
     stop: function (key)
     {
