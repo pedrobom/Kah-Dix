@@ -143,8 +143,6 @@
     
     </div>
 
-    <div id="cronometro">0:00</div>
-
     <div id="chat-section">
         
         <ul id="messages"></ul>
@@ -164,7 +162,10 @@
         const popUp = document.querySelector('#pop-up')  
 
         $(function () {
-            var socket = io.connect('http://localhost:3000');
+            const socket = io('http://localhost:3000');
+
+            socket.on('connect', function () {console.log('Socket on index.html Connected!')})
+                
             
             $('#pop-up-form').submit(function(e) {
                 e.preventDefault()

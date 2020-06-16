@@ -14,11 +14,11 @@ io.on('connection', function (socket) {
     jogadores[id] = {
         id: socket.id,
         jogador: ''    }
-    console.log('Um usuário abriu a página')
+    console.log(`O usuário ${socket.id} entou na página `)
 
     socket.on('nome input', nome => {
         jogadores[id].jogador = nome
-        console.log("usuário definiu o nome: " + jogadores[id].jogador)
+        console.log(`O usuário ${socket.id} definiu o nome: ` + jogadores[id].jogador)
     })
 
     socket.on('chat message', (msg) => {

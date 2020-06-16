@@ -25,6 +25,7 @@ function preload() {
 
 // function create () = é um espaço para Tudo que é ativado quando começa o jogo
 function create() {
+  var self = this
   this.add.image(0,0, 'bg_menu').setOrigin(0,0)
 
   // definindo o socket para ouvir a porta 3000 ( uma forma de se conectar com o arquivo server.js)
@@ -32,10 +33,10 @@ function create() {
 
   // apenas um Ping-Pong para testar se a conexão Client/Server foi estabelecida  
   this.socket.on('connect', function () {
-    console.log('Socket on client Connected!' + socket.id);
+    console.log('Socket on index.js Connected!');
   });
   // Variável pra alguma função funcionar (não entendi muito bem)
-  var self = this
+  
   
   // Adicionar texto
   this.playerStartText = this.add.text(500, 100, ['Aguardando { player.nome } iniciar a partida']).setFontSize(23).setFontFamily('Trebuchet MS').setColor('#00ffff').setInteractive();
