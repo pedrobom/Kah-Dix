@@ -9,3 +9,5 @@ O problema atual é que temos duas variáveis socket sendo criadas,
 
 uma no index.html e outra no index.js
 temos que descobrir como associar o socket do index.html com o socket do index.js
+
+https://socket.io/docs/using-multiple-nodes/

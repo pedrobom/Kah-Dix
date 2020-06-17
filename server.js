@@ -13,7 +13,9 @@ io.on('connection', function (socket) {
     let id = socket.id
     jogadores[id] = {
         id: socket.id,
-        jogador: ''    }
+        jogador: '',
+        hand: '',
+        }
     console.log(`O usuário ${socket.id} entou na página `)
 
     socket.on('nome input', nome => {
@@ -33,19 +35,19 @@ io.on('connection', function (socket) {
     })
 
     socket.on('requestCards', function () {
-        console.log(`${jogadores[id].jogador} fez "requestCards`)
-        for (jogador in jogadores) {
-           // let currentPlayer = players[playerId]
-//if (currentPlayer.game == socketPlayer.game) {
-                console.log('dando cartas para o jogador %s', jogadores[id].jogador)
-                let randomCards = []
-                for ( let i = 0; i < 5; i++ ) {
-                    let randomCard = deck[Math.floor(Math.random() * deck.length)]
-                    randomCards.push(randomCard)
-                }
-                socket.emit('dealCards', randomCards)                  
-            }   
+        console.log(`${socket.id} fez "requestCards`)
+        for (jogadores[id].hand in jogadores) { // problema
+            console.log(`dando cartas para o jogador ${jogadores[id].jogador}`) // problema
+            let randomCards = []
+            for ( let i = 0; i < 5; i++ ) {
+            let randomCard = deck[Math.floor(Math.random() * deck.length)]
+            randomCards.push(randomCard)                        
+            }  
+            jogadores[id].hand = randomCards 
+        }
 
+            
+        console.log(jogadores)
                 
         });
 
