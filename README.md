@@ -11,3 +11,5 @@ uma no index.html e outra no index.js
 temos que descobrir como associar o socket do index.html com o socket do index.js
 
 https://socket.io/docs/using-multiple-nodes/
+
+https://stackoverflow.com/questions/38511976/how-can-i-export-socket-io-into-other-modules-in-nodejs
